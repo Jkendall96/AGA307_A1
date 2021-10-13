@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public float speed = 10;
     [Header("Components")]
     public Rigidbody RB;
-    public float lifeTime = 2f;
+    public float lifeTime = 10f;
 
 
 
