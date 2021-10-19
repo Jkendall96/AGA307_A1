@@ -10,6 +10,10 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        for(int i = 0; i < 101; i++)
+        {
+            print(i);
+        }
         SpawnEnemy();
     }
 
@@ -19,8 +23,8 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             int rNum = Random.Range(0, enemyTypes.Length);
-           GameObject e = Instantiate(enemyTypes[rNum], spawnPoints[i].position, spawnPoints[i].rotation);
-            enemies.Add(e);
+            GameObject enemies = Instantiate(enemyTypes[rNum], spawnPoints[i].position, spawnPoints[i].rotation);
+            
         }
     }
 
