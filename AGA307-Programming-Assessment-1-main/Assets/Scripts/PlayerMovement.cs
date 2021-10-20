@@ -15,10 +15,17 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     bool isGrounded;
+    public Gun[] guns;
+    public int currentGun = 0;
 
 
     public float jumpHeight = 30f;
 
+    void Start()
+    {
+        SwitchWeapons(0);
+    
+    }
 
     private void Update()
     {
@@ -43,5 +50,26 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+        for(int i = 0; i < guns.Length; i++)
+        {
+            string key = (i + 1).ToString();
+            if (Input.GetKeyDown(key))
+                SwitchWeapons(i);
+        }     
+
+    }
+    void SwitchWeapons(int targetWeapon)
+    {
+        for(int i = 0; i < guns.Length; i++)
+        {
+            if (i == targetWeapon)
+                guns[i].gameObject.SetActive(false);
+
+            guns[targetWeapon].gameObject.SetActive(true);
+
+            currentGun = targetWeapon;
+        }
+            
+            
     }
 }

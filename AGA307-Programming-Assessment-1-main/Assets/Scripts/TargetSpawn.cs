@@ -6,22 +6,19 @@ public class TargetSpawn : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject[] targetTypes;
-    public List<GameObject> Targets;
   
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("I"))
+        if (Input.GetKeyDown(KeyCode.I))
             SpawnTarget();
 
     }
     void SpawnTarget()
     {
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
-            int rNum = Random.Range(0, targetTypes.Length);
-            GameObject enemies = Instantiate(targetTypes[rNum], spawnPoints[i].position, spawnPoints[i].rotation);
-        }
+        int rTarget = Random.Range(0, targetTypes.Length);
+        int rSpawn = Random.Range(0, spawnPoints.Length);
+        Instantiate(targetTypes[rTarget], spawnPoints[rSpawn].position, Quaternion.identity);
     }
 }
