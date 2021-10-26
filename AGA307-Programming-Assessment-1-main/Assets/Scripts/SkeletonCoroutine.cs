@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonCoroutine : MonoBehaviour
 {
     float moveDistance = 500f;
-    float moveDistance2 = -500f
+    float moveDistance2 = -500f;
 
     // Start is called before the first frame update
     void Start()
