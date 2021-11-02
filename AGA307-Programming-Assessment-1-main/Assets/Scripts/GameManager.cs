@@ -2,9 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+
+public enum GameState
 {
-    // Start is called before the first frame update
+    Start,
+    Play,
+    Pause,
+    GameOver
+}
+
+
+public class GameManager : Singleton<GameManager>
+{
+
+    public int score;
+    public int scoreMultiplier;
+    public GameState state;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     void Start()
     {
         
@@ -15,4 +33,10 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void AddScore(int toAdd)
+    {
+        score += toAdd;
+    }
+
 }
