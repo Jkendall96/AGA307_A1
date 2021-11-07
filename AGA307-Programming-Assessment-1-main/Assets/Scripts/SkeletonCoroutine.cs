@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonCoroutine : MonoBehaviour
 {
     float moveDistance = 500f;
-    float moveDistance2 = -500f;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class SkeletonCoroutine : MonoBehaviour
             transform.Translate(Vector3.forward * Time.deltaTime);
             yield return null;
             yield return new WaitForSeconds(3);
+
         }
     }
     // Update is called once per frame
